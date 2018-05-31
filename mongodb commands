@@ -1,0 +1,29 @@
+Commands
+===========================================
+Start mongodb: sudo systemctl start mongod
+Check status: sudo systemctl status mongod
+Start on system start: sudo systemctl enable mongod
+Default port: 27017
+
+
+
+Start compass
+===========================================
+DEBUG=* mongodb-compass;
+
+
+Impoorting data into db
+============================================
+use jq application to break the data:
+jq --compact-output ".features" input.geojson > output.geojson
+
+"jq is like sed for JSON data - you can use it to slice and filter and map and transform structured data with the same ease that sed, awk, grep and friends let you play with text."
+
+import statement:
+ mongoimport --db fire_db -c fire_incidents --type json --file "fire_incidents_output"
+
+dbName: fire_db
+collection name: fire_incidents
+
+
+
